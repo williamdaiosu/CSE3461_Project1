@@ -57,7 +57,7 @@ def main():
     parser.add_argument('--timeout', type=float, default=.3, help='seconds')
     parser.add_argument('--retries', type=int, default=5, help='extra attempts')
     parser.add_argument('--interval', type=float, default=.001, help='seconds')
-    parser.add_argument('--output', type=Path, default=Path('results'))
+    parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args()
     if args.messages < 1 or args.runs < 1 or args.interval < 0:
         parser.error('messages/runs must be positive; interval must be nonnegative')

@@ -3,7 +3,7 @@ import csv
 from pathlib import Path
 import matplotlib.pyplot as plt
 
-def plot(path: Path = Path(__file__).resolve().parent / 'results'):
+def plot(path: Path = Path(__file__).resolve().parent):
     if not path.exists():
         print(f"Results directory '{path}' does not exist.")
         return
@@ -77,6 +77,6 @@ def plot(path: Path = Path(__file__).resolve().parent / 'results'):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Plot results from benchmark CSV files.")
-    parser.add_argument('--results-dir', type=Path, default=Path(__file__).resolve().parent / 'results', help='Directory containing benchmark CSV files.')
+    parser.add_argument('--results-dir', type=Path, default=Path(__file__).resolve().parent, help='Directory containing benchmark CSV files.')
     args = parser.parse_args()
     plot(args.results_dir)
